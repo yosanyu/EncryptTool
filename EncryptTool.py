@@ -115,7 +115,7 @@ class MainUI:
         key = self.load_key()
         if not key:
             self.generate_key()
-        key = self.load_key()
+            key = self.load_key()
         for file_path in file_paths:
             file_name = os.path.basename(file_path)
             if file_path.endswith('.enc'):
