@@ -1,17 +1,23 @@
 # EncryptTool
-## 此專案共有四項功能
-### 1.加密檔案
-加密指定資料夾路徑下的所有檔案
-### 2.解密檔案
-解密指定資料夾路徑下的所有被加密檔案
-### 3.幻燈片
-讀取指定資料夾下被加密過的圖片，每3秒切換顯示的圖片，該路徑下只能有圖片
-### 4.播放影片
-解密指定的影片寫入硬碟後再開啟系統預設的播放器播放該影片，當播放器進程被關閉後，一段時間後會刪除剛剛播放的影片檔案  
-目前只支持以下這三個播放器  
+## This project provides four main features:
+### 1.File Encryption
+Encrypts all files within a specified folder path.
+### 2.File Decryption
+Decrypts all previously encrypted files within a specified folder path.
+### 3.Slideshow
+Reads encrypted images from a specified folder and displays them in a slideshow format, switching images every 3 seconds. The folder must contain images only.
+### 4.Play Video
+Decrypts the specified video file, writes it to disk, and launches it using the system’s default media player. After the media player process is closed, the video file is automatically deleted after a short delay.
+Currently, only the following three media players are supported:
 #### 1.Microsoft.Media.Player.exe
 #### 2.vlc.exe
 #### 3.PotPlayerMini64.exe
+
+## Todo
+### Support the following languages:  
+#### 1.English
+#### 2.日本語
+#### 3.简体中文
 
 ### example
 ![](example.PNG)
