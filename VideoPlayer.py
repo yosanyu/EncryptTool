@@ -29,7 +29,7 @@ class VideoPlayer:
                  shell=True,
                  stdout=subprocess.PIPE,
                  stderr=subprocess.PIPE)
-            time.sleep(2)
+            time.sleep(10)
             pid = self.get_player_pid()
             if not pid:
                 self.message_callback('未找到播放器的進程\n')

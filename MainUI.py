@@ -116,7 +116,8 @@ class MainUI:
             file_name = os.path.basename(file_path)
             if file_path.endswith('.enc'):
                 self.after_insert_message(f'檔案{file_name}已經被加密過\n')
-                time.sleep(1)
+                continue
+            if file_path == 'desktop.ini':
                 continue
             encrypted_path = file_path + ".enc"
             self.encrypt_file(file_path, encrypted_path, key)
@@ -126,7 +127,6 @@ class MainUI:
             #    os.remove(file_path)
             #except Exception as e:
             #    pass
-            time.sleep(1)
         self.after_insert_message('所有文件加密完成！\n')
         self.set_buttons_config('normal')
 
