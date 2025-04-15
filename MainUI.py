@@ -117,7 +117,7 @@ class MainUI:
             if file_path.endswith('.enc'):
                 self.after_insert_message(f'檔案{file_name}已經被加密過\n')
                 continue
-            if file_path == 'desktop.ini':
+            if file_name == 'desktop.ini':
                 continue
             encrypted_path = file_path + ".enc"
             self.encrypt_file(file_path, encrypted_path, key)
