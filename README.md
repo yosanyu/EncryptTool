@@ -1,3 +1,4 @@
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)![License](https://img.shields.io/badge/license-MIT-blue.svg)
 # EncryptTool
 ## This project provides four main features:
 ### 1.File Encryption
