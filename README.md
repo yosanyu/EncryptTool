@@ -3,7 +3,7 @@
 
 # 🔐 EncryptTool
 
-A lightweight tool that provides secure file encryption, decryption, and media playback capabilities.
+A tool that provides secure file encryption, decryption, and media playback capabilities.
 
 ## 🚀 Features
 
