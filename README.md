@@ -18,11 +18,13 @@ Decrypts all previously encrypted files within a specified folder path.
 ### 3. 🖼️ Slideshow  
 Displays encrypted images from a specified folder in a slideshow format (switches images every 3 seconds).  
 > **Note:** The folder must contain image files only.  
-🖥️ Window size is currently fixed at 800x600.
+🖥️ Window size is currently fixed at 800x600.  
 You can modify the resolution in the code to suit your own needs.
 ### 4. 🎞️ Play Video  
 Decrypts a video file, writes it to disk temporarily, and launches it with the system's default media player.  
-After playback, the file is **automatically deleted** after a short delay.
+After playback, the file is **automatically deleted** after a short delay.  
+⚠️ Warning: You must wait until the message indicates that the media player process has been detected before closing the player.  
+This ensures the file deletion will only occur once the media player process has ended.
 
 Supported media players:
 - `Microsoft.Media.Player.exe`
