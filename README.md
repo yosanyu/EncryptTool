@@ -22,4 +22,4 @@ The default is en_US.
 #### 4.繁體中文  (zh_TW)
 
 ### example
-![](example.PNG)
+
