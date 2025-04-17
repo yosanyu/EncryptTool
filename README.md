@@ -1,3 +1,4 @@
+![Platform](https://img.shields.io/badge/platform-Windows10/11-blue?logo=windows)
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -8,15 +9,17 @@ A tool that provides secure file encryption, decryption, and media playback capa
 ## 🚀 Features
 
 ### 1. 📁 File Encryption  
-Encrypts all files within a specified folder path.
+Encrypts all files within a specified folder path.  
+📝 TODO: Skip Windows system hidden files during encryption.
 
 ### 2. 🔓 File Decryption  
 Decrypts all previously encrypted files within a specified folder path.
 
 ### 3. 🖼️ Slideshow  
 Displays encrypted images from a specified folder in a slideshow format (switches images every 3 seconds).  
-> **Note:** The folder must contain image files only.
-
+> **Note:** The folder must contain image files only.  
+🖥️ Window size is currently fixed at 800x600.
+You can modify the resolution in the code to suit your own needs.
 ### 4. 🎞️ Play Video  
 Decrypts a video file, writes it to disk temporarily, and launches it with the system's default media player.  
 After playback, the file is **automatically deleted** after a short delay.
