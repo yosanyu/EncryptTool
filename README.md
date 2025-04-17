@@ -13,11 +13,13 @@ Currently, only the following three media players are supported:
 #### 2.vlc.exe
 #### 3.PotPlayerMini64.exe
 
-## Todo
 ### Support the following languages:  
-#### 1.English
-#### 2.日本語
-#### 3.简体中文
+Modify the language in language.txt before execute the program.  
+The default is en_US.  
+#### 1.English (en_US)  
+#### 2.日本語   (ja_JP)  
+#### 3.简体中文 (zh_CN)
+#### 4.繁體中文  (zh_TW)
 
 ### example
 ![](example.PNG)
