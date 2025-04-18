@@ -3,6 +3,7 @@ import threading
 import time
 import glob
 import tkinter as tk
+import ctypes
 from tkinter import filedialog
 from tkinter import messagebox
 from tkinter import ttk
@@ -11,6 +12,10 @@ from video_player import VideoPlayer
 from decrypter import Decrypter
 from encrypter import Encryptor
 from translation import translations
+
+def is_hidden(filepath):
+    attrs = ctypes.windll.kernel32.GetFileAttributesW(str(filepath))
+    return attrs != -1 and (attrs & 2)  # FILE_ATTRIBUTE_HIDDEN = 0x2
 
 class MainUI:
     def __init__(self, language):
@@ -148,8 +153,8 @@ class MainUI:
         file_name = os.path.basename(file_path)
         if file_path.endswith('.enc'):
             self.after_insert_message(translations[self.language]['already_encrypted'].format(file_name=file_name))
-        elif file_name == 'desktop.ini':
-            self.after_insert_message(translations[self.language]['skip_desktop_file'])
+        elif is_hidden(file_path):
+            self.after_insert_message(translations[self.language]['system_file'].format(file_name=file_name))
         else:
             encrypted_path = file_path + '.enc'
             start_time = time.time()
