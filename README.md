@@ -10,7 +10,6 @@ A tool that provides secure file encryption, decryption, and media playback capa
 
 ### 1. 📁 File Encryption  
 Encrypts all files within a specified folder path.  
-📝 TODO: Skip Windows system hidden files during encryption.
 
 ### 2. 🔓 File Decryption  
 Decrypts all previously encrypted files within a specified folder path.
@@ -30,6 +29,9 @@ Supported media players:
 - `Microsoft.Media.Player.exe`
 - `vlc.exe`
 - `PotPlayerMini64.exe`
+
+###  📝 TODO: 
+After the disk has written a certain amount of data, let it rest for a while
 
 ---
 
