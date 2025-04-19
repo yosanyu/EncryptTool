@@ -8,7 +8,6 @@ def load_language():
         return 'en_US'
     with open(language_path, 'r') as f:
         language = f.read()
-        print(language)
         if language in languages:
             return language
     return 'en_US'

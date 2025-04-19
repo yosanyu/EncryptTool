@@ -72,10 +72,11 @@ class MainUI:
 
     def place_progress_bar(self, b_show:bool):
         if b_show is True:
-            self.progress_bar['value'] = 0
             self.progress_bar.place(x=200, y=100, width=400, height=40)
             self.progress_label.place(x=620, y=100, width=100, height=40)
             return
+        self.progress_bar['value'] = 0
+        self.progress_label.config(text='')
         self.progress_bar.place_forget()
         self.progress_label.place_forget()
 
@@ -139,11 +140,16 @@ class MainUI:
         index = 0
         file_length = len(file_paths)
         self.place_progress_bar(True)
+        wrote_file_size = 0
         for file_path in file_paths:
-            self.encrypt(file_path)
+            wrote_file_size += self.encrypt(file_path)
             index += 1
             self.update_progress_bar(index, file_length)
-            time.sleep(0.1)
+            if wrote_file_size >= 1 * 1024 * 1024 * 1024:
+                wrote_file_size = 0
+                self.after_insert_message('累計寫入超過1gb休息10秒\n')
+                time.sleep(10)
+
         self.after_insert_message(translations[self.language]['encrypted'])
         self.set_buttons_config('normal')
         messagebox.showinfo(translations[self.language]['hint'], translations[self.language]['hint_encrypted'])
@@ -151,6 +157,7 @@ class MainUI:
 
     def encrypt(self, file_path):
         file_name = os.path.basename(file_path)
+        file_size = 0
         if file_path.endswith('.enc'):
             self.after_insert_message(translations[self.language]['already_encrypted'].format(file_name=file_name))
         elif is_hidden(file_path):
@@ -164,6 +171,9 @@ class MainUI:
             elapsed_time = end_time - start_time
             self.after_insert_message(translations[self.language]['encrypt_message'].format
                                       (file_name=file_name, elapsed_time=elapsed_time))
+            file_size = os.path.getsize(file_path)
+        return file_size
+
 
     def start_decrypt_thread(self):
         thread = threading.Thread(target=self.select_directory_and_decrypt, daemon=True)
@@ -246,6 +256,7 @@ class MainUI:
             self.after_insert_message(translations[self.language]['no_key'])
             return
         decrypted_file_path = encrypted_file_path.replace('.enc', '')
+        self.set_buttons_config('disabled')
         start_time = time.time()
         decrypter = Decrypter(self.key)
         decrypter.decrypt_file(encrypted_file_path, decrypted_file_path)
@@ -253,7 +264,6 @@ class MainUI:
         elapsed_time = end_time - start_time
         self.after_insert_message(translations[self.language]['decrypt_video_message'].format
                                   (decrypted_file_path=decrypted_file_path, elapsed_time=elapsed_time))
-        self.set_buttons_config('disabled')
         player = VideoPlayer(decrypted_file_path, self.language, self.after_insert_message)
         player.play()
         while player.is_play:
