@@ -30,8 +30,7 @@ Supported media players:
 - `vlc.exe`
 - `PotPlayerMini64.exe`
 
-###  📝 TODO: 
-After the disk has written a certain amount of data, let it rest for a while
+###  📝 TODO:
 
 ---
 

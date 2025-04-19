@@ -36,7 +36,8 @@ translations = {
         'video_deleted': '影片{decrypted_path}已刪除\n',
         'delete_video_error': '刪除影片錯誤:{e}\n',
         'delete_video_again': '再次嘗試刪除影片',
-        'file_not_exist': '檔案不存在\n'
+        'file_not_exist': '檔案不存在\n',
+        'wrote_size': '累計寫入資料超過1GB，休息10秒\n'
     },
      'zh_CN': {
         'close': '关闭',
@@ -76,6 +77,7 @@ translations = {
         'delete_video_error': '删除视频错误:{e}\n',
         'delete_video_again': '再次尝试删除视频',
         'file_not_exist': '文件不存在\n',
+        'wrote_size': '累计写入数据超过1GB，休息10秒\n'
     },
     'en_US': {
         'close': 'Close',
@@ -115,6 +117,7 @@ translations = {
         'delete_video_error': 'Video deletion error: {e}\n',
         'delete_video_again': 'Trying to delete the video again',
         'file_not_exist': 'File does not exist\n',
+        'wrote_size': 'Accumulated data written exceeds 1GB, rest for 10 seconds.\n'
     },
     'ja_JP': {
         'close': '閉じる',
@@ -154,5 +157,6 @@ translations = {
         'delete_video_error': 'ファイル削除エラー: {e}\n',
         'delete_video_again': 'もう一度ファイルの削除を試みます',
         'file_not_exist': 'ファイルが存在しません\n',
+        'wrote_size': '書き込まれたデータが1GBを超えると、10秒間休止します\n'
     }
 }

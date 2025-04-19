@@ -147,7 +147,7 @@ class MainUI:
             self.update_progress_bar(index, file_length)
             if wrote_file_size >= 1 * 1024 * 1024 * 1024:
                 wrote_file_size = 0
-                self.after_insert_message('累計寫入超過1gb休息10秒\n')
+                self.after_insert_message(translations[self.language]['wrote_size'])
                 time.sleep(10)
 
         self.after_insert_message(translations[self.language]['encrypted'])
@@ -197,10 +197,15 @@ class MainUI:
         index = 0
         file_length = len(file_paths)
         self.place_progress_bar(True)
+        wrote_file_size = 0
         for file_path in file_paths:
-            self.decrypt(file_path)
+            wrote_file_size += self.decrypt(file_path)
             index += 1
             self.update_progress_bar(index, file_length)
+            if wrote_file_size >= 1 * 1024 * 1024 * 1024:
+                wrote_file_size = 0
+                self.after_insert_message(translations[self.language]['wrote_size'])
+                time.sleep(10)
             time.sleep(0.1)
         self.after_insert_message(translations[self.language]['decrypted'])
         self.set_buttons_config('normal')
@@ -209,6 +214,7 @@ class MainUI:
 
     def decrypt(self, file_path):
         file_name = os.path.basename(file_path)
+        file_size = 0
         if file_path.endswith('.enc'):
             decrypted_path = file_path[:-4]
             decrypted_file_name = os.path.basename(decrypted_path)
@@ -221,6 +227,8 @@ class MainUI:
                                       (file_name=file_name,
                                        decrypted_file_name=decrypted_file_name,
                                        elapsed_time=elapsed_time))
+            file_size = os.path.getsize(file_path)
+        return file_size
 
     def start_slideshow_thread(self):
         thread = threading.Thread(target=self.select_directory_and_slideshow, daemon=True)
